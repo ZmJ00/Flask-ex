@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <title><% block title%>Jeff - Web{&endblock%}</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='f13.ico')}}" />
+    {%block style%}{%endblock%}
+    {% endblock head %}
+</head>
+<body>
+    <nav>
+        <ul><li><a href="{{url_for('index')}}">Home</a></li></ul>
+    </nav>
+    <main>
+        {% for m in get_flashed_messages() %}
+            <div class="alert">{{m}}</div>
+        {% endfor %}
+        {% block content%}{% endblock %}
+    </main>
+    {% block scripts %}{%endblock%}
+</body>
+</html>

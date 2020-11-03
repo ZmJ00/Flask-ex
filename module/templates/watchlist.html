@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+{% from 'macros.html' import static_file %}
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{user.name}} - WatchList</title>
+    {{static_file('icon','f13.ico')}}
+</head>
+<body>
+    <a href="/">&larr; 点我回到首页</a>
+    <h2>
+        <img src="{{url_for('static',filename='h11.png')}}" />
+        {{user.name}}
+    </h2>
+    {% if user.bio %}
+        <i>{{user.bio}}</i>
+    {% else %}
+        <i>this guy has no bio</i>
+    {% endif %}
+
+    <h5>{{user.name}} 's Watchlist ({{movies|length}}):</h5>
+        <ul>
+            {% for movie in movies %}
+            <li>{{movie.title}} - {{movie.year}}</li>
+            {% endfor %}
+        </ul>
+    
+</body>
+</html>

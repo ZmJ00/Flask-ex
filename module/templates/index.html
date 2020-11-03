@@ -1,0 +1,16 @@
+﻿{% extends 'base.html' %}
+{% from 'macros.html' import qux %}
+
+{% block content %}
+{# write your content in the block #}
+{% set name = 'baz' %} 
+<h1>Index HTML</h1>
+<ul>
+    <li><a href="{{url_for('watchlist')}}">Watchlist of movies</a></li>
+    <li>Filter: {{foo|smile}}</li>
+    <li>Global: {{bar()}}</li>
+    <li>Test: {% if name is baz %}I am baz{%endif%}</li>
+    <li>Macro: {{qux(amount=5)}}</li>
+    <li><a href="{{url_for('just_flash')}}">Flash</a></li>
+</ul>
+{% endblock %}
